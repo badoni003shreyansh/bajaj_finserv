@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: bajaj-finserv-llm-api
+    env: python
+    plan: starter
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.0
+      - key: API_BEARER_TOKEN
+        sync: false
+      - key: GOOGLE_API_KEY
+        sync: false
+      - key: MONGO_HOST
+        sync: false
+      - key: MONGO_USER
+        sync: false
+      - key: MONGO_PASS
+        sync: false
